@@ -74,7 +74,7 @@ def loadDirectors(catalog):
     Carga todos los directores
     """
     t1_start = process_time() #tiempo inicial
-    castingfile = cf.data_dir + 'themoviesdb/SmallMoviesDetailsCleaned.csv'
+    castingfile = cf.data_dir + 'themoviesdb/MoviesCastingRaw-small.csv'
     
     dialect = csv.excel()
     dialect.delimiter=";"
@@ -90,7 +90,22 @@ def loadActors(catalog):
     """
     Carga todos los actores
     """
-    pass
+    t1_start = process_time() #tiempo inicial
+    castingfile = cf.data_dir + 'themoviesdb/MoviesCastingRaw-small.csv'
+    
+    dialect = csv.excel() 
+    
+    dialect.delimiter=";"
+    with open(castingfile, encoding="utf-8") as csvfile:
+        spamreader = csv.DictReader(csvfile, dialect=dialect)
+        for row in spamreader: 
+            model.addActor (catalog, row)
+            model.addActor (catalog, row)
+            model.addActor (catalog, row)
+            model.addActor (catalog, row)
+            model.addActor (catalog, row)
+    t1_stop = process_time() #tiempo inicial
+    print("Tiempo de ejecución carga directores",t1_stop-t1_start," segundos")
 
 
 def initCatalog ():
