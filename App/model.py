@@ -49,8 +49,8 @@ def newActor (name, movie_id):
     Crea una nueva estructura para almacenar los actores de una pelicula 
     """
     actor = {'name':'', 'movie_id':''}
-    director ['name'] = name
-    director ['movie_id'] = movie_id
+    actor ['name'] = name
+    actor ['movie_id'] = movie_id
     return actor
 
 def addActor (catalog, actor):
