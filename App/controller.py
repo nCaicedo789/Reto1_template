@@ -74,7 +74,7 @@ def loadDirectors(catalog):
     Carga todos los directores
     """
     t1_start = process_time() #tiempo inicial
-    castingfile = cf.data_dir + 'themoviesdb/MoviesCastingRaw-small.csv'
+    castingfile = cf.data_dir + 'themoviesdb/SmallMoviesDetailsCleaned.csv'
     
     dialect = csv.excel()
     dialect.delimiter=";"

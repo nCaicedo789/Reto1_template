@@ -48,13 +48,17 @@ def newActor (name, movie_id):
     """
     Crea una nueva estructura para almacenar los actores de una pelicula 
     """
-    pass
+    actor = {'name':'', 'movie_id':''}
+    director ['name'] = name
+    director ['movie_id'] = movie_id
+    return actor
 
 def addActor (catalog, actor):
     """
     Adiciona un actor a la lista de actores
     """
-    pass
+    d = newActor (actor['name'], actor['id'])
+    lt.addLast (catalog['actors'], d)
 
 def newDirector (name, movie_id):
     """
@@ -78,6 +82,8 @@ def addDirector (catalog, director):
 # Funciones de consulta
 
 def getMoviesByDirector (catalog, dir_name):
+
+
     """
     Retorna las peliculas a partir del nombre del director
     """
