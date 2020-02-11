@@ -86,6 +86,7 @@ while True:
         loadData (catalog)
         print ('Peliculas cargadas: ' + str(lt.size(catalog['movies'])))
         print ('Directores cargados: ' + str(lt.size(catalog['directors'])))
+        
 
 
     elif int(inputs[0])==2:
@@ -106,7 +107,8 @@ while True:
 
     elif int(inputs[0])==4:
         label = input ("Nombre del Actor a buscar: ")
-        pass
+        print()
+        
     else:
         sys.exit(0)
 sys.exit(0)
