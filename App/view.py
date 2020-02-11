@@ -93,10 +93,7 @@ while True:
         movies = controller.getBestMovies (catalog, int(number))
         printBestMovies (movies)
 
-    elif int(inputs[0])==5:
-        number = input ("Buscando las Worst ?: ")
-        movies = controller.getWorstMovies(catalog, int(number))
-        printBestMovies (movies)
+    
 
     elif int(inputs[0])==3:
         dir_name = input("Nombre del director a buscar: ")
@@ -105,8 +102,18 @@ while True:
 
 
     elif int(inputs[0])==4:
-        label = input ("Nombre del Actor a buscar: ")
-        pass
+        nombre = input("Nombre del Actor a buscar: ")
+        #print(catalog['movies']['elements'])
+        movies = controller.getMoviesByActor(catalog, nombre)
+        print (movies)
+        print("Total de películas en las que ha participado: " + str(len(movies)))
+        
+
+    elif int(inputs[0])==5:
+        number = input ("Buscando las Worst ?: ")
+        movies = controller.getWorstMovies(catalog, int(number))
+        printBestMovies (movies)
+
     else:
         sys.exit(0)
 sys.exit(0)

@@ -141,13 +141,12 @@ def getWorstMovies (catalog, number):
     movies = catalog['movies']
     bestmovies = lt.newList()
     x= lt.size(movies)
-    print(x)
-    print(lt.getElement (movies, 0))
-    print(lt.getElement (movies, 1))
-    print(lt.getElement (movies, x))
- 
     for cont in range ((x-number), x):
         movie = lt.getElement (movies, cont)
         lt.addLast (bestmovies, movie)
     return bestmovies
+
+def getMoviesByActor(catalog, act_name):
+    movies_lst = model.getMoviesByActor(catalog, act_name)
+    return movies_lst
 
