@@ -57,8 +57,25 @@ def addActor (catalog, actor):
     """
     Adiciona un actor a la lista de actores
     """
-    d = newActor (actor['name'], actor['id'])
-    lt.addLast (catalog['actors'], d)
+    d = newActor(actor['actor1_name'], actor['id'])
+    if actor["actor1_name"] != "none":
+        lt.addLast(catalog['actors'], d)
+
+    d = newActor(actor['actor2_name'], actor['id'])
+    if actor["actor2_name"] != "none":
+        lt.addLast(catalog['actors'], d)
+
+    d = newActor(actor['actor3_name'], actor['id'])
+    if actor["actor3_name"] != "none":
+        lt.addLast(catalog['actors'], d)
+
+    d = newActor(actor['actor4_name'], actor['id'])
+    if actor["actor4_name"] != "none":
+         lt.addLast(catalog['actors'], d)
+
+    d = newActor(actor['actor5_name'], actor['id'])
+    if actor["actor5_name"] != "none":
+        lt.addLast(catalog['actors'], d)
 
 def newDirector (name, movie_id):
     """
