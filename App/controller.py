@@ -150,3 +150,6 @@ def getMoviesByActor(catalog, act_name):
     movies_lst = model.getMoviesByActor(catalog, act_name)
     return movies_lst
 
+def VoteAverageForActor(catalog, act_name):
+    vote_avg = model.VoteAverageForActor(catalog, act_name)
+    return(vote_avg)
