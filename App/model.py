@@ -99,6 +99,7 @@ def addDirector (catalog, director):
 # Funciones de consulta
 
 def getMoviesByDirector (catalog, dir_name):
+<<<<<<< HEAD
     print("In model..")
     peliculas={'peliculas':[], 'vote_aver':0, 'num_peli':0}
     numero = 0
@@ -118,12 +119,19 @@ def getMoviesByDirector (catalog, dir_name):
     peliculas['vote_aver']= (peliculas['vote_aver'])/(peliculas['num_peli'])        
 
     return(peliculas)
+=======
+    """
+    Retorna las peliculas a partir del nombre del director
+    """
+    return []
+>>>>>>> a5142d63f1d96825728b6711b8673f090216fae5
 
 
 def getMoviesByActor(catalog, act_name):
     act_name = act_name.lower()
     lista_ids = []
     lista_movies = []
+    
 
     for i in range(0, len(catalog['actors']['elements'])-1):
         if act_name == catalog['actors']['elements'][i]['name'].lower():
@@ -133,7 +141,32 @@ def getMoviesByActor(catalog, act_name):
     for i in range(0, len(lista_ids)):
         for j in range(0, len(catalog['movies']['elements'])-1):
             if lista_ids[i] == catalog['movies']['elements'][j]['id']:
+                
                 lista_movies.append(catalog['movies']['elements'][j]['title'])
-
+    
     return(lista_movies)
+
+def VoteAverageForActor(catalog, act_name):
+    act_name = act_name.lower()
+    lista_ids = []
+    vote_sum = 0
+
+    for i in range(0, len(catalog['actors']['elements'])-1):
+        if act_name == catalog['actors']['elements'][i]['name'].lower():
+            
+            lista_ids.append(catalog['actors']['elements'][i]['movie_id'])
+
+    for i in range(0, len(lista_ids)):
+        for j in range(0, len(catalog['movies']['elements'])-1):
+            if lista_ids[i] == catalog['movies']['elements'][j]['id']:
+                vote_sum += float(catalog['movies']['elements'][j]['vote_average'])
+
+    vote_average = vote_sum/len(lista_ids)
+    return (vote_average)
+
+def MostDirectedActor(catalog, act_name):
+   
+
+    
+
 

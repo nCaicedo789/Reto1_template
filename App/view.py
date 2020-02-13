@@ -39,8 +39,9 @@ def printMenu():
     print("1- Cargar información del reto")
     print("2- Peliculas con mejores votaciones")
     print("3- Peliculas por Director")
-    print("4- Requerimiento 2 ... etc")
-    print('5-peliculas con peores votaciones')
+    print("4- Información de actores")
+    print('5 -Peliculas con peores votaciones')
+    print("6- Informacioón por gnénero")
     print("0- Salir")
 
 
@@ -105,8 +106,11 @@ while True:
         nombre = input("Nombre del Actor a buscar: ")
         
         movies = controller.getMoviesByActor(catalog, nombre)
-        print (movies)
+        for i in movies:
+            print(i)
         print("Total de películas en las que ha participado: " + str(len(movies)))
+        vote_average = controller.VoteAverageForActor(catalog, nombre)
+        print("El promedio de votos para este actor es: " + str(vote_average))
         
 
     elif int(inputs[0])==5:
