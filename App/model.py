@@ -157,11 +157,9 @@ def VoteAverageForActor(catalog, act_name):
     vote_average = vote_sum/len(lista_ids)
     return (vote_average)
 
+def getMoviesByGen(catalog, gen):
+    pass
+
 def MostDirectedActor(catalog, act_name):
    
 
-    
-
-
-def GetMoviesByGen(catalog, gen):
-    
