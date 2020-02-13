@@ -119,12 +119,6 @@ def getMoviesByDirector (catalog, dir_name):
     peliculas['vote_aver']= (peliculas['vote_aver'])/(peliculas['num_peli'])        
 
     return(peliculas)
-=======
-    """
-    Retorna las peliculas a partir del nombre del director
-    """
-    return []
->>>>>>> a5142d63f1d96825728b6711b8673f090216fae5
 
 
 def getMoviesByActor(catalog, act_name):
