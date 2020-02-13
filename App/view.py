@@ -26,6 +26,7 @@ import csv
 from ADT import list as lt
 from DataStructures import listiterator as it
 
+
 """
 La vista se encarga de la interacción con el usuario
 Presenta el menu de opciones  y  por cada seleccion
@@ -37,11 +38,11 @@ operación solicitada
 def printMenu():
     print("Bienvenido al Reto 1")
     print("1- Cargar información del reto")
-    print("2- Peliculas con mejores votaciones")
-    print("3- Peliculas por Director")
+    print("2- Películas con mejores votaciones")
+    print("3- Peliculas por director")
     print("4- Información de actores")
-    print('5 -Peliculas con peores votaciones')
-    print("6- Informacioón por gnénero")
+    print('5- Películas con peores votaciones')
+    print("6- Información por gnénero")
     print("0- Salir")
 
 
@@ -103,14 +104,20 @@ while True:
 
 
     elif int(inputs[0])==4:
-        nombre = input("Nombre del Actor a buscar: ")
+        nombre = input("\nNombre del Actor a buscar: ")
         #print(catalog['movies']['elements'])
         movies = controller.getMoviesByActor(catalog, nombre)
-        for i in movies:
-            print(i)
-        print("Total de películas en las que ha participado: " + str(len(movies)))
-        vote_average = controller.VoteAverageForActor(catalog, nombre)
-        print("El promedio de votos para este actor es: " + str(vote_average))
+        if len(movies) != 0:
+            print("\nLas películas en las que " + nombre + " ha actuado son: \n")
+            for i in movies:
+                 print(i)
+            print("\nTotal de películas en las que ha participado: " + str(len(movies)))
+            vote_average = controller.VoteAverageForActor(catalog, nombre)
+            print("\nEl promedio de votos para este actor es: " + str(vote_average))
+            director = controller.MostDirectedActor(catalog, nombre)
+            print("\nEl director que más veces a dirigido a " + nombre + " es: " + director + "\n")
+        else: 
+            print("\nActor \"" + nombre + "\" no encontrado\n")
         
 
     elif int(inputs[0])==5:
