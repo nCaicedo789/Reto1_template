@@ -99,10 +99,41 @@ def addDirector (catalog, director):
 # Funciones de consulta
 
 def getMoviesByDirector (catalog, dir_name):
+    print("In model..")
+    peliculas={'peliculas':[], 'vote_aver':0, 'num_peli':0}
+    numero = 0
+    count=0
+    for i in catalog['directors']['elements']:
+        if dir_name == i['name']:
+            count+=1
+            numero = i['movie_id']
+            
+
+            for j in catalog['movies']['elements']:
+                if  numero== j['id']:
+                    peliculas['peliculas'].append(j['title'])
+                    peliculas['num_peli']+=1
+                    peliculas['vote_aver']+=float(j['vote_average'])
+    print(count)                   
+    peliculas['vote_aver']= (peliculas['vote_aver'])/(peliculas['num_peli'])        
+
+    return(peliculas)
 
 
-    """
-    Retorna las peliculas a partir del nombre del director
-    """
-    return []
+def getMoviesByActor(catalog, act_name):
+    act_name = act_name.lower()
+    lista_ids = []
+    lista_movies = []
+
+    for i in range(0, len(catalog['actors']['elements'])-1):
+        if act_name == catalog['actors']['elements'][i]['name'].lower():
+            
+            lista_ids.append(catalog['actors']['elements'][i]['movie_id'])
+
+    for i in range(0, len(lista_ids)):
+        for j in range(0, len(catalog['movies']['elements'])-1):
+            if lista_ids[i] == catalog['movies']['elements'][j]['id']:
+                lista_movies.append(catalog['movies']['elements'][j]['title'])
+
+    return(lista_movies)
 
