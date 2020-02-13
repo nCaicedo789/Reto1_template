@@ -99,7 +99,6 @@ def addDirector (catalog, director):
 # Funciones de consulta
 
 def getMoviesByDirector (catalog, dir_name):
-<<<<<<< HEAD
     print("In model..")
     peliculas={'peliculas':[], 'vote_aver':0, 'num_peli':0}
     numero = 0
@@ -164,3 +163,5 @@ def MostDirectedActor(catalog, act_name):
     
 
 
+def GetMoviesByGen(catalog, gen):
+    

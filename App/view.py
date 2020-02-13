@@ -117,6 +117,10 @@ while True:
         number = input ("Buscando las Worst ?: ")
         movies = controller.getWorstMovies(catalog, int(number))
         printBestMovies (movies)
+    
+    elif int(inputs[0])==6:
+        gen=input('genero a buscar')
+        print(controller.getMoviesByGen(catalog, gen))
 
     else:
         sys.exit(0)
