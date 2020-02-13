@@ -161,5 +161,4 @@ def getMoviesByGen(catalog, gen):
     pass
 
 def MostDirectedActor(catalog, act_name):
-   
-
+    
