@@ -159,7 +159,7 @@ def VoteAverageForActor(catalog, act_name):
 
 def getMoviesByGen(catalog, gen):
     pass
+    
 
-def MostDirectedActor(catalog, act_name):
-   
 
+    
