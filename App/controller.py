@@ -155,12 +155,9 @@ def VoteAverageForActor(catalog, act_name):
     vote_avg = model.VoteAverageForActor(catalog, act_name)
     return(vote_avg)
 
-<<<<<<< HEAD
 def MostDirectedActor(catalog, act_name):
     lista = model.MostDirectedActor(catalog, act_name)
     return(lista)
-=======
 
 def getMoviesByGen(catalog, gen):
     return(model.getMoviesByGen(catalog, gen))
->>>>>>> df0a481495c65f0c24e0ce383efc8b08a6526bf6
