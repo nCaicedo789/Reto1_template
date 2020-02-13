@@ -88,6 +88,7 @@ while True:
         loadData (catalog)
         print ('Peliculas cargadas: ' + str(lt.size(catalog['movies'])))
         print ('Directores cargados: ' + str(lt.size(catalog['directors'])))
+        
 
 
     elif int(inputs[0])==2:
@@ -99,13 +100,12 @@ while True:
 
     elif int(inputs[0])==3:
         dir_name = input("Nombre del director a buscar: ")
-        movies = controller.getMoviesByDirector (catalog, dir_name)
-        print(movies)
+        print(controller.getMoviesByDirector(catalog, dir_name))
 
-
+      
     elif int(inputs[0])==4:
-        nombre = input("\nNombre del Actor a buscar: ")
-        #print(catalog['movies']['elements'])
+        nombre = input("Nombre del Actor a buscar: ")
+        
         movies = controller.getMoviesByActor(catalog, nombre)
         if len(movies) != 0:
             print("\nLas películas en las que " + nombre + " ha actuado son: \n")
@@ -124,6 +124,10 @@ while True:
         number = input ("Buscando las Worst ?: ")
         movies = controller.getWorstMovies(catalog, int(number))
         printBestMovies (movies)
+    
+    elif int(inputs[0])==6:
+        gen=input('genero a buscar')
+        print(controller.getMoviesByGen(catalog, gen))
 
     else:
         sys.exit(0)

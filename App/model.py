@@ -101,10 +101,25 @@ def addDirector (catalog, director):
 # Funciones de consulta
 
 def getMoviesByDirector (catalog, dir_name):
-    """
-    Retorna las peliculas a partir del nombre del director
-    """
-    return []
+    print("In model..")
+    peliculas={'peliculas':[], 'vote_aver':0, 'num_peli':0}
+    numero = 0
+    count=0
+    for i in catalog['directors']['elements']:
+        if dir_name == i['name']:
+            count+=1
+            numero = i['movie_id']
+            
+
+            for j in catalog['movies']['elements']:
+                if  numero== j['id']:
+                    peliculas['peliculas'].append(j['title'])
+                    peliculas['num_peli']+=1
+                    peliculas['vote_aver']+=float(j['vote_average'])
+    print(count)                   
+    peliculas['vote_aver']= (peliculas['vote_aver'])/(peliculas['num_peli'])        
+
+    return(peliculas)
 
 
 def getMoviesByActor(catalog, act_name):
@@ -145,6 +160,7 @@ def VoteAverageForActor(catalog, act_name):
         return (round(vote_average, 2))
     
 
+<<<<<<< HEAD
 def MostDirectedActor(catalog, act_name):
     
     lista_dic = []
@@ -183,7 +199,10 @@ def MostDirectedActor(catalog, act_name):
     return mayor
 
    
+=======
+def getMoviesByGen(catalog, gen):
+    pass
+>>>>>>> df0a481495c65f0c24e0ce383efc8b08a6526bf6
 
+def MostDirectedActor(catalog, act_name):
     
-
-
