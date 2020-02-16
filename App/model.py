@@ -37,7 +37,7 @@ def newCatalog():
     """
     Inicializa el catálogo de peliculas. Retorna el catalogo inicializado.
     """
-    catalog = {'movies':None, 'directors':None, 'actors': None}
+    catalog = {'movies':None, 'directors':None, 'actors': None, 'generos':None}
     catalog['movies'] = lt.newList('ARRAY_LIST')
     catalog['directors'] = lt.newList('ARRAY_LIST')
     catalog['actors'] = lt.newList('ARRAY_LIST')
@@ -104,7 +104,7 @@ def getMoviesByDirector (catalog, dir_name):
     numero = 0
     count=0
     for i in catalog['directors']['elements']:
-        if dir_name == i['name']:
+        if dir_name.lower() == i['name'].lower():
             count+=1
             numero = i['movie_id']
             
@@ -158,7 +158,16 @@ def VoteAverageForActor(catalog, act_name):
     return (vote_average)
 
 def getMoviesByGen(catalog, gen):
-    pass
+    info= {'voto_promedio': 0, 'numero_de_peliculas':0}
+    for i in catalog['movies']['elements']:
+        x=i['genres'].split(|)
+        for j in x:
+            if j.lower()== gen.lower():
+                info['numero_de_peliculas']+=1
+                info['voto_promedio']+= float(i['vote_average'])
+    info['voto_promedio']= info['voto_promedio']/info['numero_de_peliculas']
+            
+    return info
     
 
 

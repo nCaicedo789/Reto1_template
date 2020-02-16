@@ -87,7 +87,6 @@ while True:
         loadData (catalog)
         print ('Peliculas cargadas: ' + str(lt.size(catalog['movies'])))
         print ('Directores cargados: ' + str(lt.size(catalog['directors'])))
-        print(catalog['movies'])
         
 
 
@@ -120,7 +119,7 @@ while True:
         printBestMovies (movies)
     
     elif int(inputs[0])==6:
-        gen=input('genero a buscar')
+        gen=input('genero a buscar\n')
         print(controller.getMoviesByGen(catalog, gen))
 
     else:
