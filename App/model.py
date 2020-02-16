@@ -209,6 +209,10 @@ def getMoviesByGen(catalog, gen):
             if j.lower()== gen.lower():
                 info['numero_de_peliculas']+=1
                 info['voto_promedio']+= float(i['vote_average'])
+
+    if info['numero_de_peliculas']== 0:
+        return 'No se encontro el genero\n'
+        
     info['voto_promedio']= info['voto_promedio']/info['numero_de_peliculas']
             
     return info
