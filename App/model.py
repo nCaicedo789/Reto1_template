@@ -25,6 +25,8 @@ from ADT import list as lt
 from DataStructures import listiterator as it
 
 
+
+
 """
 Se define la estructura de un catálogo de libros.
 El catálogo tendrá tres listas, una para libros, otra para autores 
@@ -153,11 +155,53 @@ def VoteAverageForActor(catalog, act_name):
         for j in range(0, len(catalog['movies']['elements'])-1):
             if lista_ids[i] == catalog['movies']['elements'][j]['id']:
                 vote_sum += float(catalog['movies']['elements'][j]['vote_average'])
+    if len(lista_ids) != 0:
+        vote_average = vote_sum/len(lista_ids)
+        return (round(vote_average, 2))
+    
 
-    vote_average = vote_sum/len(lista_ids)
-    return (vote_average)
+<<<<<<< HEAD
+def MostDirectedActor(catalog, act_name):
+    
+    lista_dic = []
+    act_name = act_name.lower()
+    lista_ids = []
+    
 
+    for i in range(0, len(catalog['actors']['elements'])-1):
+        if act_name == catalog['actors']['elements'][i]['name'].lower():
+            
+            lista_ids.append(catalog['actors']['elements'][i]['movie_id'])
+    '''
+    for i in range(0, len(lista_ids)):
+        lista_dic.append(dic)
+    '''
+    
+    
+    for i in range(0, len(lista_ids)):
+        for j in range(0, len(catalog['directors']['elements'])-1):
+            
+            
+            if str(lista_ids[i]) == catalog['directors']['elements'][j]['movie_id']:
+                lista_dic.append(catalog['directors']['elements'][j]['name'])
+                #[i]['director'] = catalog['directors']['elements'][j]['name']
+
+    counter = {x:lista_dic.count(x) for x in lista_dic}
+
+    mayor = ''
+    cantidad = 0
+
+    for i in counter:
+        if counter[i] > cantidad:
+            mayor = i
+            cantidad = counter[i]
+        
+    return mayor
+
+   
+=======
 def getMoviesByGen(catalog, gen):
+<<<<<<< HEAD
     info= {'voto_promedio': 0, 'numero_de_peliculas':0}
     for i in catalog['movies']['elements']:
         x=i['genres'].split('|')
@@ -171,4 +215,10 @@ def getMoviesByGen(catalog, gen):
     
 
 
+=======
+    pass
+>>>>>>> df0a481495c65f0c24e0ce383efc8b08a6526bf6
+
+def MostDirectedActor(catalog, act_name):
+>>>>>>> 1178448d5641ef131a750b2c2cf22e7da5eb8a4e
     
