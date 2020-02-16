@@ -160,7 +160,7 @@ def VoteAverageForActor(catalog, act_name):
 def getMoviesByGen(catalog, gen):
     info= {'voto_promedio': 0, 'numero_de_peliculas':0}
     for i in catalog['movies']['elements']:
-        x=i['genres'].split(|)
+        x=i['genres'].split('|')
         for j in x:
             if j.lower()== gen.lower():
                 info['numero_de_peliculas']+=1
