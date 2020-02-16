@@ -127,6 +127,7 @@ while True:
     
     elif int(inputs[0])==6:
         gen=input('genero a buscar\n')
+        print('El genero ', gen, 'tiene:\n')
         print(controller.getMoviesByGen(catalog, gen))
 
     else:
