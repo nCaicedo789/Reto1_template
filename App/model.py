@@ -160,7 +160,7 @@ def VoteAverageForActor(catalog, act_name):
         return (round(vote_average, 2))
     
 
-<<<<<<< HEAD
+
 def MostDirectedActor(catalog, act_name):
     
     lista_dic = []
@@ -199,9 +199,9 @@ def MostDirectedActor(catalog, act_name):
     return mayor
 
    
-=======
+
 def getMoviesByGen(catalog, gen):
-<<<<<<< HEAD
+
     info= {'voto_promedio': 0, 'numero_de_peliculas':0}
     for i in catalog['movies']['elements']:
         x=i['genres'].split('|')
@@ -212,13 +212,7 @@ def getMoviesByGen(catalog, gen):
     info['voto_promedio']= info['voto_promedio']/info['numero_de_peliculas']
             
     return info
-    
 
 
-=======
-    pass
->>>>>>> df0a481495c65f0c24e0ce383efc8b08a6526bf6
 
-def MostDirectedActor(catalog, act_name):
->>>>>>> 1178448d5641ef131a750b2c2cf22e7da5eb8a4e
     
