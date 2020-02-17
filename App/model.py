@@ -131,7 +131,7 @@ def getMoviesByActor(catalog, act_name):
     for i in range(1, size+1):
         if act_name == lt.getElement(catalog['actors'],i)['name'].lower():
             
-            lista_ids.append(lt.getElement(catalog,i)['movie_id'])
+            lista_ids.append(lt.getElement(catalog['actors'],i)['movie_id'])
     size_movies= lt.size(catalog['movies'])
     for i in range(0, len(lista_ids)):
         for j in range(1, size_movies+1):
