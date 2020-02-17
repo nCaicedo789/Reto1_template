@@ -105,19 +105,21 @@ def getMoviesByDirector (catalog, dir_name):
     peliculas={'peliculas':[], 'vote_aver':0, 'num_peli':0}
     numero = 0
     count=0
-    for i in catalog['directors']['elements']:
-        if dir_name.lower() == i['name'].lower():
+    size=lt.size(catalog['directors'])
+    size_movies=lt.size(catalog['movies'])
+    for i in range(1,size+1):
+        if dir_name.lower() == lt.getElement(catalog['directors'],i)['name'].lower():
             count+=1
-            numero = i['movie_id']
+            numero = lt.getElement(catalog['directors'],i)['movie_id']
             
 
-            for j in catalog['movies']['elements']:
-                if  numero== j['id']:
-                    peliculas['peliculas'].append(j['title'])
+            for j in range(1,size_movies+1):
+                if  numero== lt.getElement(catalog['movies'], j)['id']:
+                    peliculas['peliculas'].append(lt.getElement(catalog['movies'], j)['title'])
                     peliculas['num_peli']+=1
-                    peliculas['vote_aver']+=float(j['vote_average'])
+                    peliculas['vote_aver']+=float(lt.getElement(catalog['movies'], j)['vote_average'])
     print(count)                   
-    peliculas['vote_aver']= (peliculas['vote_aver'])/(peliculas['num_peli'])        
+    peliculas['vote_aver']= round((peliculas['vote_aver'])/(peliculas['num_peli']),2)        
 
     return(peliculas)
 
@@ -126,18 +128,18 @@ def getMoviesByActor(catalog, act_name):
     act_name = act_name.lower()
     lista_ids = []
     lista_movies = []
-    
+    size= lt.size(catalog['actors'])
 
-    for i in range(0, len(catalog['actors']['elements'])-1):
-        if act_name == catalog['actors']['elements'][i]['name'].lower():
+    for i in range(1, size+1):
+        if act_name == lt.getElement(catalog['actors'],i)['name'].lower():
             
-            lista_ids.append(catalog['actors']['elements'][i]['movie_id'])
-
+            lista_ids.append(lt.getElement(catalog['actors'],i)['movie_id'])
+    size_movies= lt.size(catalog['movies'])
     for i in range(0, len(lista_ids)):
-        for j in range(0, len(catalog['movies']['elements'])-1):
-            if lista_ids[i] == catalog['movies']['elements'][j]['id']:
+        for j in range(1, size_movies+1):
+            if lista_ids[i] == lt.getElement(catalog['movies'], j)['id']:
                 
-                lista_movies.append(catalog['movies']['elements'][j]['title'])
+                lista_movies.append(lt.getElement(catalog['movies'],j)['title'])
     
     return(lista_movies)
 
@@ -145,16 +147,17 @@ def VoteAverageForActor(catalog, act_name):
     act_name = act_name.lower()
     lista_ids = []
     vote_sum = 0
+    size= lt.size(catalog['actors'])
 
-    for i in range(0, len(catalog['actors']['elements'])-1):
-        if act_name == catalog['actors']['elements'][i]['name'].lower():
+    for i in range(1, size+1):
+        if act_name == lt.getElement(catalog['actors'],i)['name'].lower():
             
-            lista_ids.append(catalog['actors']['elements'][i]['movie_id'])
-
+            lista_ids.append(lt.getElement(catalog['actors'],i)['movie_id'])
+    size_movies= lt.size(catalog['movies'])
     for i in range(0, len(lista_ids)):
-        for j in range(0, len(catalog['movies']['elements'])-1):
-            if lista_ids[i] == catalog['movies']['elements'][j]['id']:
-                vote_sum += float(catalog['movies']['elements'][j]['vote_average'])
+        for j in range(1, size_movies):
+            if lista_ids[i] == lt.getElement(catalog['movies'], j)['id']:
+                vote_sum += float(lt.getElement(catalog['movies'],j)['vote_average'])
     if len(lista_ids) != 0:
         vote_average = vote_sum/len(lista_ids)
         return (round(vote_average, 2))
@@ -167,23 +170,23 @@ def MostDirectedActor(catalog, act_name):
     act_name = act_name.lower()
     lista_ids = []
     
-
-    for i in range(0, len(catalog['actors']['elements'])-1):
-        if act_name == catalog['actors']['elements'][i]['name'].lower():
+    size= lt.size(catalog['actors'])
+    for i in range(1, size+1):
+        if act_name == lt.getElement(catalog['actors'],i)['name'].lower():
             
-            lista_ids.append(catalog['actors']['elements'][i]['movie_id'])
+            lista_ids.append(lt.getElement(catalog['actors'],i)['movie_id'])
     '''
     for i in range(0, len(lista_ids)):
         lista_dic.append(dic)
     '''
     
-    
+    size_directors= lt.size(catalog['directors'])
     for i in range(0, len(lista_ids)):
-        for j in range(0, len(catalog['directors']['elements'])-1):
+        for j in range(1, size_directors+1):
             
             
-            if str(lista_ids[i]) == catalog['directors']['elements'][j]['movie_id']:
-                lista_dic.append(catalog['directors']['elements'][j]['name'])
+            if lista_ids[i] == lt.getElement(catalog['directors'],j)['movie_id']:
+                lista_dic.append(lt.getElement(catalog['directors'],j)['name'])
                 #[i]['director'] = catalog['directors']['elements'][j]['name']
 
     counter = {x:lista_dic.count(x) for x in lista_dic}
@@ -203,17 +206,18 @@ def MostDirectedActor(catalog, act_name):
 def getMoviesByGen(catalog, gen):
 
     info= {'voto_promedio': 0, 'numero_de_peliculas':0}
-    for i in catalog['movies']['elements']:
-        x=i['genres'].split('|')
+    size= lt.size(catalog['movies'])
+    for i in range(1,size+1):
+        x=lt.getElement(catalog['movies'],i)['genres'].split('|')
         for j in x:
             if j.lower()== gen.lower():
                 info['numero_de_peliculas']+=1
-                info['voto_promedio']+= float(i['vote_average'])
+                info['voto_promedio']+= float(lt.getElement(catalog['movies'],i)['vote_average'])
 
     if info['numero_de_peliculas']== 0:
         return 'No se encontro el genero\n'
         
-    info['voto_promedio']= info['voto_promedio']/info['numero_de_peliculas']
+    info['voto_promedio']= round(info['voto_promedio']/info['numero_de_peliculas'],2)
             
     return info
 

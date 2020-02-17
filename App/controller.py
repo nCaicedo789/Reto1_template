@@ -126,7 +126,7 @@ def loadData (catalog):
 # Funciones llamadas desde la vista y enviadas al modelo
 
 def getMoviesByDirector (catalog, dir_name):
-    print("in controller")
+    
     return model.getMoviesByDirector(catalog, dir_name)
 
 def getBestMovies (catalog, number):
