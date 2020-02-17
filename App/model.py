@@ -108,7 +108,7 @@ def getMoviesByDirector (catalog, dir_name):
     size=lt.size(catalog['directors'])
     size_movies=lt.size(catalog['movies'])
     for i in range(1,size+1):
-        if dir_name.lower() == lt.getElement(catalog['directors'])['name'].lower():
+        if dir_name.lower() == lt.getElement(catalog['directors'],i)['name'].lower():
             count+=1
             numero = lt.getElement(catalog['directors'])['movie_id']
             

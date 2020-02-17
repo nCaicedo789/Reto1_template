@@ -88,7 +88,7 @@ while True:
         loadData (catalog)
         print ('Peliculas cargadas: ' + str(lt.size(catalog['movies'])))
         print ('Directores cargados: ' + str(lt.size(catalog['directors'])))
-        print(lt.getElement(catalog['movies'], 1)['original_title'])
+        
         
 
 
