@@ -90,6 +90,7 @@ while True:
         print ('Directores cargados: ' + str(lt.size(catalog['directors'])))
         
         
+        
 
 
     elif int(inputs[0])==2:
