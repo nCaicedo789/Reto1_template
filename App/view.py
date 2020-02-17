@@ -101,6 +101,7 @@ while True:
 
     elif int(inputs[0])==3:
         dir_name = input("Nombre del director a buscar: ")
+        print('Las peliculas de '+ dir_name + 'son:\n')
         print(controller.getMoviesByDirector(catalog, dir_name))
 
       
