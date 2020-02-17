@@ -18,9 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  """
-
-import config as cf
 import model 
+import config as cf
 import csv
 from ADT import list as lt
 from DataStructures import listiterator as it
