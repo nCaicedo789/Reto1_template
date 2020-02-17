@@ -185,8 +185,8 @@ def MostDirectedActor(catalog, act_name):
         for j in range(1, size_directors+1):
             
             
-            if lista_ids[i] == lt.size(catalog['directors'])['movie_id']:
-                lista_dic.append(lt.size(catalog['directors'])['name'])
+            if lista_ids[i] == lt.size(catalog['directors'],j)['movie_id']:
+                lista_dic.append(lt.size(catalog['directors'],j)['name'])
                 #[i]['director'] = catalog['directors']['elements'][j]['name']
 
     counter = {x:lista_dic.count(x) for x in lista_dic}
